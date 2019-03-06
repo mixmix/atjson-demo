@@ -1,0 +1,55 @@
+{
+  "name": "atjson-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electro index.js",
+    "build": "browserify index.js > bundle.js",
+    "build-html": "browserify index.js | indexhtmlify > temp.html",
+    "watch": "watchify index.js --debug -v -o bundle.js",
+    "watch-html": "watchify index.js --debug -v -o 'indexhtmlify > temp.html'"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ],
+          "plugins": [
+            "@babel/plugin-transform-regenerator"
+          ]
+        }
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixmix/atjson-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mixmix/atjson-demo/issues"
+  },
+  "homepage": "https://github.com/mixmix/atjson-demo#readme",
+  "dependencies": {
+    "@atjson/document": "^0.14.2",
+    "@atjson/renderer-hir": "^0.13.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-regenerator": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "indexhtmlify": "^2.0.0",
+    "watchify": "^3.11.1",
+    "electro": "^2.1.1",
+    "electron": "^2.0.17"
+  }
+}
